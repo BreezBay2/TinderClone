@@ -13,33 +13,25 @@ struct CardView: View {
     @State private var xOffset: CGFloat = 0
     @State private var currentImageIndex = 0
     
-    var cardWidth: CGFloat {
-        UIScreen.main.bounds.width - 20
-    }
-    
-    var cardHeight: CGFloat {
-        UIScreen.main.bounds.height / 1.45
-    }
-    
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
                 Image(User.MOCK_USERS[0].profileImageURLs[currentImageIndex])
                     .resizable()
                     .scaledToFill()
-                    .frame(width: cardWidth, height: cardHeight)
+                    .frame(width: ScreenDimensions.cardWidth, height: ScreenDimensions.cardHeight)
                     .overlay {
                         ImageTappingOverlay(currentImageIndex: $currentImageIndex, imageCount: user.profileImageURLs.count)
                     }
                 
                 ImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: user.profileImageURLs.count)
                 
-                SwipeActionIndicatorView()
+                SwipeActionIndicatorView(xOffset: $xOffset, screenCutoff: ScreenDimensions.screenCutoff)
             }
             
             UserInfoView(user: user)
         }
-        .frame(width: cardWidth, height: cardHeight)
+        .frame(width: ScreenDimensions.cardWidth, height: ScreenDimensions.cardHeight)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .offset(x: xOffset)
         .animation(.snappy, value: xOffset)
@@ -49,9 +41,36 @@ struct CardView: View {
                     xOffset = value.translation.width
                 })
                 .onEnded({ value in
-                    xOffset = 0
+                    if abs(xOffset) <= abs(ScreenDimensions.screenCutoff) {
+                        toCenter()
+                        return
+                    }
+                    
+                    if xOffset >= ScreenDimensions.screenCutoff {
+                        swipeRight()
+                    } else {
+                        swipeLeft()
+                    }
                 })
         )
+    }
+}
+
+private extension CardView {
+    func toCenter() {
+        xOffset = 0
+    }
+    
+    func swipeRight() {
+        withAnimation {
+            xOffset = 500
+        }
+    }
+    
+    func swipeLeft() {
+        withAnimation {
+            xOffset = -500
+        }
     }
 }
 
