@@ -24,7 +24,7 @@ struct ImageTappingOverlay: View {
                     updateImageIndex(increment: true)
                 }
         }
-        .foregroundStyle(.white.opacity(0.1))
+        .foregroundStyle(.white.opacity(0.01))
     }
 }
 

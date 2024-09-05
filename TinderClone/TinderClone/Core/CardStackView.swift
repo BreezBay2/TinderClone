@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct CardStackView: View {
+    @StateObject var viewModel = CardsViewModel(service: CardService())
+    
     var body: some View {
         NavigationStack {
             VStack {
                 ZStack {
-                    ForEach(0 ... 3, id: \.self) { card in
-                        CardView(user: User.MOCK_USERS[0])
+                    ForEach(viewModel.cards) { card in
+                        CardView(viewModel: viewModel, card: card)
                     }
                 }
             }

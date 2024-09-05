@@ -8,11 +8,10 @@
 import SwiftUI
 
 struct MainTabView: View {
-    let user: User
     
     var body: some View {
         TabView {
-            CardView(user: user)
+            CardStackView()
                 .tabItem {
                     Image(systemName: "flame")
                 }
@@ -41,5 +40,5 @@ struct MainTabView: View {
 }
 
 #Preview {
-    MainTabView(user: User.MOCK_USERS[0])
+    MainTabView()
 }

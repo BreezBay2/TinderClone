@@ -8,23 +8,33 @@
 import SwiftUI
 
 struct CardView: View {
-    let user: User
+    @ObservedObject var viewModel: CardsViewModel
     
     @State private var xOffset: CGFloat = 0
     @State private var currentImageIndex = 0
     
+    let card: Card
+    
+    var user: User {
+        return card.user
+    }
+    
+    var imageCount: Int {
+        return user.profileImageURLs.count
+    }
+    
     var body: some View {
         ZStack(alignment: .bottom) {
             ZStack(alignment: .top) {
-                Image(User.MOCK_USERS[0].profileImageURLs[currentImageIndex])
+                Image(user.profileImageURLs[currentImageIndex])
                     .resizable()
                     .scaledToFill()
                     .frame(width: ScreenDimensions.cardWidth, height: ScreenDimensions.cardHeight)
                     .overlay {
-                        ImageTappingOverlay(currentImageIndex: $currentImageIndex, imageCount: user.profileImageURLs.count)
+                        ImageTappingOverlay(currentImageIndex: $currentImageIndex, imageCount: imageCount)
                     }
                 
-                ImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: user.profileImageURLs.count)
+                ImageIndicatorView(currentImageIndex: currentImageIndex, imageCount: imageCount)
                 
                 SwipeActionIndicatorView(xOffset: $xOffset, screenCutoff: ScreenDimensions.screenCutoff)
             }
@@ -64,16 +74,20 @@ private extension CardView {
     func swipeRight() {
         withAnimation {
             xOffset = 500
+        } completion: {
+            viewModel.removeCard(card: card)
         }
     }
     
     func swipeLeft() {
         withAnimation {
             xOffset = -500
+        } completion: {
+            viewModel.removeCard(card: card)
         }
     }
 }
 
 #Preview {
-    CardView(user: User.MOCK_USERS[0])
+    CardView(viewModel: CardsViewModel(service: CardService()), card: Card(user: User.MOCK_USERS[0]))
 }
