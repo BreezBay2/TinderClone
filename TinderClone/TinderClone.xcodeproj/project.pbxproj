@@ -23,6 +23,7 @@
 		2F8D26FB2C88AAB20087BF7F /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8D26FA2C88AAB20087BF7F /* CardService.swift */; };
 		2F8D26FF2C88ABB30087BF7F /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8D26FE2C88ABB30087BF7F /* Card.swift */; };
 		2FDB10E52C87BD8300595B6D /* ScreenDimensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FDB10E42C87BD8300595B6D /* ScreenDimensions.swift */; };
+		2FE948472C89F04F00B3F243 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE948462C89F04F00B3F243 /* UserProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		2F8D26FA2C88AAB20087BF7F /* CardService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
 		2F8D26FE2C88ABB30087BF7F /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		2FDB10E42C87BD8300595B6D /* ScreenDimensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenDimensions.swift; sourceTree = "<group>"; };
+		2FE948462C89F04F00B3F243 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				2FDB10E42C87BD8300595B6D /* ScreenDimensions.swift */,
 				2F8D26F82C8885140087BF7F /* CardsViewModel.swift */,
 				2F8D26FA2C88AAB20087BF7F /* CardService.swift */,
+				2FE948462C89F04F00B3F243 /* UserProfileView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -207,6 +210,7 @@
 				2F610AC02C8213D500C91CBD /* TinderCloneApp.swift in Sources */,
 				2F42F11C2C851A4800DDD3D2 /* ImageTappingOverlay.swift in Sources */,
 				2F42F1142C850EB000DDD3D2 /* UserInfoView.swift in Sources */,
+				2FE948472C89F04F00B3F243 /* UserProfileView.swift in Sources */,
 				2F8D26F92C8885140087BF7F /* CardsViewModel.swift in Sources */,
 				2F42F1162C8511A200DDD3D2 /* MainTabView.swift in Sources */,
 				2F42F11E2C851C2800DDD3D2 /* SwipeActionIndicatorView.swift in Sources */,

@@ -12,6 +12,7 @@ struct CardView: View {
     
     @State private var xOffset: CGFloat = 0
     @State private var currentImageIndex = 0
+    @State private var showProfileModal = false
     
     let card: Card
     
@@ -39,7 +40,10 @@ struct CardView: View {
                 SwipeActionIndicatorView(xOffset: $xOffset, screenCutoff: ScreenDimensions.screenCutoff)
             }
             
-            UserInfoView(user: user)
+            UserInfoView(showProfileModal: $showProfileModal, user: user)
+        }
+        .fullScreenCover(isPresented: $showProfileModal) {
+            UserProfileView(user: user)
         }
         .frame(width: ScreenDimensions.cardWidth, height: ScreenDimensions.cardHeight)
         .clipShape(RoundedRectangle(cornerRadius: 10))
