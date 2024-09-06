@@ -69,17 +69,10 @@
 		2F42F10F2C850BCE00DDD3D2 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2FE948492C8A062C00B3F243 /* Profile */,
+				2FE948482C8A05AE00B3F243 /* Cards */,
 				2F42F1152C8511A200DDD3D2 /* MainTabView.swift */,
-				2F42F1112C850C7100DDD3D2 /* CardView.swift */,
-				2F8D26F62C887C230087BF7F /* CardStackView.swift */,
-				2F42F1132C850EB000DDD3D2 /* UserInfoView.swift */,
-				2F42F1172C85135E00DDD3D2 /* ImageIndicatorView.swift */,
-				2F42F11B2C851A4800DDD3D2 /* ImageTappingOverlay.swift */,
-				2F42F11D2C851C2800DDD3D2 /* SwipeActionIndicatorView.swift */,
 				2FDB10E42C87BD8300595B6D /* ScreenDimensions.swift */,
-				2F8D26F82C8885140087BF7F /* CardsViewModel.swift */,
-				2F8D26FA2C88AAB20087BF7F /* CardService.swift */,
-				2FE948462C89F04F00B3F243 /* UserProfileView.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -128,6 +121,29 @@
 				2F610AC62C8213D600C91CBD /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		2FE948482C8A05AE00B3F243 /* Cards */ = {
+			isa = PBXGroup;
+			children = (
+				2F8D26F62C887C230087BF7F /* CardStackView.swift */,
+				2F42F1112C850C7100DDD3D2 /* CardView.swift */,
+				2F8D26F82C8885140087BF7F /* CardsViewModel.swift */,
+				2F8D26FA2C88AAB20087BF7F /* CardService.swift */,
+				2F42F1132C850EB000DDD3D2 /* UserInfoView.swift */,
+				2F42F11D2C851C2800DDD3D2 /* SwipeActionIndicatorView.swift */,
+				2F42F1172C85135E00DDD3D2 /* ImageIndicatorView.swift */,
+				2F42F11B2C851A4800DDD3D2 /* ImageTappingOverlay.swift */,
+			);
+			path = Cards;
+			sourceTree = "<group>";
+		};
+		2FE948492C8A062C00B3F243 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				2FE948462C89F04F00B3F243 /* UserProfileView.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
