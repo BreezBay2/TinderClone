@@ -45,6 +45,9 @@ struct CardView: View {
         .fullScreenCover(isPresented: $showProfileModal) {
             UserProfileView(user: user)
         }
+        .onReceive(viewModel.$swipeAction, perform: { action in
+            onReceiveSwipeAction(action: action)
+        })
         .frame(width: ScreenDimensions.cardWidth, height: ScreenDimensions.cardHeight)
         .clipShape(RoundedRectangle(cornerRadius: 10))
         .offset(x: xOffset)
@@ -90,6 +93,26 @@ private extension CardView {
             viewModel.removeCard(card: card)
         }
     }
+    
+    func onReceiveSwipeAction(action: SwipeAction?) {
+        guard let action else { return }
+        
+        let topCard = viewModel.cards.last
+        
+        if topCard == card {
+            switch action {
+            case .nope:
+                swipeLeft()
+            case .like:
+                swipeRight()
+            }
+        }
+    }
+}
+
+enum SwipeAction {
+    case nope
+    case like
 }
 
 #Preview {

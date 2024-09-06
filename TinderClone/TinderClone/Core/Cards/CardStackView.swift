@@ -12,11 +12,14 @@ struct CardStackView: View {
     
     var body: some View {
         NavigationStack {
-            VStack {
+            VStack(spacing: 16) {
                 ZStack {
                     ForEach(viewModel.cards) { card in
                         CardView(viewModel: viewModel, card: card)
                     }
+                }
+                if !viewModel.cards.isEmpty {
+                    SwipeButtonsView(viewModel: viewModel)
                 }
             }
             .toolbar {
