@@ -29,7 +29,7 @@ struct MainTabView: View {
                 }
                 .tag(2)
             
-            Text("Profile View")
+            CurrentUserProfileView(user: User.MOCK_USERS[3])
                 .tabItem {
                     Image(systemName: "person")
                 }
